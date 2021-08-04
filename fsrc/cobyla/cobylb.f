@@ -761,6 +761,10 @@ C          TEMP=0.0
       DO K=1,MPP
           DATMAT(K,JDROP)=CON(K)
       END DO
+C Increase TR
+      IF (TRURED > 0.0D0 .AND. TRURED >= 0.9D0*PREREM)
+            RHO=2*RHO
+      END IF
 C
 C     Branch back for further iterations with the current RHO.
 C
